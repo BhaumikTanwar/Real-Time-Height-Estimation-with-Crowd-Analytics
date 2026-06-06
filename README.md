@@ -1,34 +1,44 @@
-Overview
-This project estimates a person's height in real time using a standard webcam and computer vision techniques. The system uses YOLOv8 for person detection and ByteTrack for tracking individuals across frames. 
-Estimated heights are stored in a SQLite database and visualized through a Streamlit analytics dashboard.
+# Real-Time Height Estimation with Crowd Analytics
 
-Technologies Used
-Python
-OpenCV
-YOLOv8 (Ultralytics)
-ByteTrack
-SQLite
-Pandas
-Streamlit
-Matplotlib
+## Overview
 
-Calibration Method
+This project estimates a person's height in real time using a standard webcam, YOLOv8, and ByteTrack. Detected heights are stored in a SQLite database and visualized through a Streamlit dashboard that shows crowd statistics such as average height and height distribution.
 
-A standard A4 sheet is placed vertically on a wall and used as a reference object of known height.
-Calibration Process -
-Start the application.
-Click the top of the A4 sheet.
-Click the bottom of the A4 sheet.
-The pixel height of the A4 sheet is measured.
-A pixel-to-centimeter conversion factor is calculated.
+## How to Run
+
+### Install Dependencies
+
+```bash
+pip install ultralytics opencv-python streamlit pandas matplotlib
+```
+
+### Run Height Detection
+
+```bash
+python main.py
+```
+
+### Run Dashboard
+
+```bash
+streamlit run app.py
+```
+
+## Calibration Method
+
+A standard A4 sheet is used as a reference object for calibration.
+
+1. Fix the A4 sheet vertically on a wall.
+2. Start the application.
+3. Click the top and bottom of the A4 sheet.
+4. The system measures the sheet's height in pixels and calculates a pixel-to-centimeter conversion factor.
 
 Formula:
-cm_per_pixel = A4_height_cm / A4_height_pixels
 
-Running the Project
-Install Dependencies
-pip install ultralytics opencv-python streamlit pandas matplotlib
-Start Height Detection
-python main.py
-Start Analytics Dashboard
-streamlit run app.py
+```text
+cm_per_pixel = Real Height of A4 Sheet / Height of A4 Sheet in Pixels
+```
+
+The detected person's height in pixels is then converted to centimeters using this scale.
+
+For best accuracy, the camera and A4 sheet should remain fixed, and the person should stand close to the reference object.
