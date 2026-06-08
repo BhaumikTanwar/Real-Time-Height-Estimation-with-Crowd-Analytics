@@ -42,3 +42,6 @@ cm_per_pixel = Real Height of A4 Sheet / Height of A4 Sheet in Pixels
 The detected person's height in pixels is then converted to centimeters using this scale.
 
 For best accuracy, the camera and A4 sheet should remain fixed, and the person should stand close to the reference object.
+
+Demo video link
+https://drive.google.com/file/d/1pEQjJ9qyp0J_r2Xcx72uKCD72wh-EXkW/view?usp=drive_link
